@@ -26,6 +26,7 @@ contract MyToken is IERC20 {
 
     function transfer(address to, uint256 value)
         public
+        virtual
         override
         returns (bool success)
     {
@@ -67,7 +68,7 @@ contract MyToken is IERC20 {
         address from,
         address to,
         uint256 value
-    ) public override returns (bool success) {
+    ) public virtual override returns (bool success) {
         require(allowed[from][msg.sender] >= value);
         require(balances[from] >= value);
 
